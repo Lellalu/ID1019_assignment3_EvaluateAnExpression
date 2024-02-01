@@ -24,6 +24,7 @@ defmodule Eval do
   def eval({:divi, e1, e2}, env) do
     divi(eval(e1, env), eval(e2, env))
   end
+
   def eval({:q, e1, e2}, env) do
     {:q, eval(e1, env), eval(e2, env)}
   end
@@ -91,7 +92,7 @@ defmodule Eval do
 
   def test1() do
     env = Env.new([{:x, {:num, 2}}, {:y, {:num, 6}}])
-    expr = {:add, {:q, {:num, 1}, {:num, 2}}, {:mul, {:num, 2}, {:var, :x}}}
+    expr = {:add, {:num, 3}, {:add, {:q, {:num, 1}, {:num, 2}}, {:mul, {:num, 2}, {:var, :x}}}}
     eval(expr, env)
   end
 

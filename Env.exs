@@ -1,6 +1,4 @@
 defmodule Env do
-
-
   def new(list) do
     Enum.into(list, %{})
   end
